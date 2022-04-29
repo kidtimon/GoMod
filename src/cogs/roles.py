@@ -4,6 +4,7 @@ from discord.ext import commands
 from utils.views import CreateRole, DeleteRole 
 import re
 from discord.app_commands import checks, MissingPermissions
+from config import config
 
 
 class Role(commands.Cog,app_commands.Group,name="role"):
@@ -47,4 +48,4 @@ class Role(commands.Cog,app_commands.Group,name="role"):
         
 
 async def setup(bot: commands.Bot) -> None:
-  await bot.add_cog(Role(bot), guilds=[discord.Object(id=)])
+  await bot.add_cog(Role(bot), guilds=[discord.Object(id=config.guild_id)])
